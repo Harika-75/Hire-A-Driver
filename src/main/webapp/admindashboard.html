@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard Page</title>
+</head>
+<body>
+	<h1>Welcome to Admin Dashboard </h1>
+	<form action="login.html" method="get">
+	<input type="submit" value="Logout"/>
+	</form>
+</body>
+</html>
