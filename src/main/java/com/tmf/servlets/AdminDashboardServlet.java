@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.tmf.entity.User;
@@ -29,8 +31,13 @@ public class AdminDashboardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		
-		User admin = (User)request.getAttribute("loggedinUser");
+		User admin = (User)session.getAttribute("loggedinUser");
+		 if (admin == null) {
+		        response.sendRedirect("login.html");
+		        return;
+		    }
 		System.out.println(request.getParameter("user_name"));
 		System.out.println(request.getParameter("password"));
 		// TODO Auto-generated method stub
@@ -45,7 +52,7 @@ public class AdminDashboardServlet extends HttpServlet {
 				+ admin.getUserName() + "<br/>"
 				+ admin.getEmail() + "<br/>"
 				+ admin.getContactNo() + "<br/>"
-				+ "	<form action=\"login.html\" method=\"get\">\r\n"
+				+ " <form action=\"LogoutServlet\" method=\"post\">\r\n"
 				+ "	<input type=\"submit\" value=\"Logout\"/>\r\n"
 				+ "	</form>\r\n"
 				+ "</body>\r\n"
