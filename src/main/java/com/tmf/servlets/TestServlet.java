@@ -6,6 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 /**
  * Servlet implementation class TestServlet
@@ -23,6 +26,22 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("This is a do get Test Servlet");
+		 String DB_URL = "jdbc:mysql://localhost:3306/javaproject";
+	    String USER = "root";
+	    String PASS = "root";
+	    Connection conn =null;
+	    try {
+	    	Class.forName("com.mysql.cj.jdbc.Driver");
+	    	conn=DriverManager.getConnection(DB_URL, USER, PASS);
+	    	if(conn!=null) {
+	    		System.out.println("connected to my sql database");
+	    	}
+	      
+	    	
+	    }
+	    catch(Exception e) {
+	    	e.printStackTrace();
+	    }
 		String op=request.getParameter("op");
 		int result=0;
 		

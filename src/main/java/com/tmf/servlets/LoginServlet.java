@@ -28,10 +28,10 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		  response.sendRedirect("login.html");
 		//Cookie ck[] =request.getCookies();
-		String userName = null;
+		//String userName = null;
 		//if (ck != null) {
 	      //  for (Cookie c : ck) {
 	       //     if ("uname".equals(c.getName())) {
@@ -42,11 +42,11 @@ public class LoginServlet extends HttpServlet {
 	   // }
 		
 		
-		User user = new User(userName, "Client", "", "");
-		request.setAttribute("loggedinUser", user);
+		//User user = new User(userName, "Client", "", "");
+		//request.setAttribute("loggedinUser", user);
 		
-		RequestDispatcher rd=request.getRequestDispatcher("UserHomeServlet");
-		rd.forward(request, response);
+		//RequestDispatcher rd=request.getRequestDispatcher("UserHomeServlet");
+		//rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if(uname!=null && password!=null &&!uname.isEmpty()&&!password.isEmpty()&&uname.equals("admin")&&password.equals("admin")) {
-			System.out.println("Login successful");
+			System.out.println("Admin Login successful");
 			//RequestDispatcher rd=request.getRequestDispatcher("AdminDashboardServlet");  
 			User adminUser = new User("ADMIN", "Administrator", "9818253870", "admin@gmail.com");
 			

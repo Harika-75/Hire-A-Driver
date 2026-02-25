@@ -33,11 +33,12 @@ public class AdminDashboardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		
-		User admin = (User)session.getAttribute("loggedinUser");
-		 if (admin == null) {
+		 if (session == null) {
 		        response.sendRedirect("login.html");
 		        return;
 		    }
+		User admin = (User)session.getAttribute("loggedinUser");
+		 
 		System.out.println(request.getParameter("user_name"));
 		System.out.println(request.getParameter("password"));
 		// TODO Auto-generated method stub

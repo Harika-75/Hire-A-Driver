@@ -31,12 +31,13 @@ public class UserHomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		
-		User user = (User)session.getAttribute("loggedinUser");
-		 if (user == null) {
+		 if (session == null) {
 		        response.sendRedirect("login.html");
 		        return;
 		    }
+		
+		User user = (User)session.getAttribute("loggedinUser");
+		
 		// TODO Auto-generated method stub
 		response.getWriter().append("<!DOCTYPE html>\r\n"
 				+ "<html>\r\n"
