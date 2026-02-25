@@ -29,7 +29,11 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+<<<<<<< Updated upstream
 		  response.sendRedirect("login.html");
+=======
+		response.sendRedirect("login.html");
+>>>>>>> Stashed changes
 		//Cookie ck[] =request.getCookies();
 		//String userName = null;
 		//if (ck != null) {
