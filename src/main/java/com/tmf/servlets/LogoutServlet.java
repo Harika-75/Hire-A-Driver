@@ -42,15 +42,12 @@ public class LogoutServlet extends HttpServlet {
 		//ck.setMaxAge(0);
 		//response.addCookie(ck);
 		HttpSession session = request.getSession(false);
-<<<<<<< Updated upstream
+
 		  if (session != null) {
 		        session.invalidate();
 		    }
-=======
-		if(session!=null) {
-			session.invalidate();
-		}
->>>>>>> Stashed changes
+
+
 		response.sendRedirect("login.html");
 		//doGet(request, response);
 	}
