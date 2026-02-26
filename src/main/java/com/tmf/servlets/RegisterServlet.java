@@ -1,35 +1,25 @@
 package com.tmf.servlets;
-
-<<<<<<< HEAD
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-=======
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
-<<<<<<< HEAD
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/Register")
-=======
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 
 /**
  * Servlet implementation class RegisterServlet
  */
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
+
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,23 +36,19 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-=======
+
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.sendRedirect("login.html");
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
-		
-=======
-		// TODO Auto-generated method stub
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
+
 		response.setContentType("text/html");		
 		PrintWriter out=response.getWriter();
 		
@@ -83,14 +69,10 @@ public class RegisterServlet extends HttpServlet {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/javaproject",
                 "root",
-<<<<<<< HEAD
                 "root"
-=======
-                "Harika@123"
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
             );
             
-         String sql = "INSERT INTO user " +
+         String sql = "INSERT INTO users " +
                     "(firstname, lastname, username, password, phone_number, email, dob, user_type, gender, address) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
@@ -107,20 +89,24 @@ public class RegisterServlet extends HttpServlet {
          ps.setString(10, addr);
          
          int i=ps.executeUpdate();  
-         if(i>0)  
-         out.print("You are successfully registered...");  
-         con.close();
+         if(i > 0) {
+        	 	out.println("Registration successful! Please login.");
+        	 	//sleep(1000) Pause for 2 seconds before redirecting
+              			 	//response.sendRedirect("login.html");
+        	  
+        	} else {
+        	    out.println("Registration failed. Please try again.");
+        	} 
          
         }catch (Exception e) {
         	 e.printStackTrace();
              out.println(" Error: " + e.getMessage());
         	
         }
-<<<<<<< HEAD
+
 		
 		// TODO Auto-generated method stub
-=======
->>>>>>> b82696c24f089ba0f1f15f9bae737366301ee619
+
 		//doGet(request, response);
 	}
 
