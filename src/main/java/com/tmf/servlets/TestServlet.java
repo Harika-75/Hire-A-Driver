@@ -28,7 +28,7 @@ public class TestServlet extends HttpServlet {
 		System.out.println("This is a do get Test Servlet");
 		 String DB_URL = "jdbc:mysql://localhost:3306/javaproject";
 	    String USER = "root";
-	    String PASS = "root";
+	    String PASS = "Harika@123";
 	    Connection conn =null;
 	    try {
 	    	Class.forName("com.mysql.cj.jdbc.Driver");

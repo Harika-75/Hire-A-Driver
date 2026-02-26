@@ -32,6 +32,7 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+
 		
 		 if (session == null) {
 		        response.sendRedirect("login.html");
@@ -39,6 +40,14 @@ public class AdminDashboardServlet extends HttpServlet {
 		    }
 		User admin = (User)session.getAttribute("loggedinUser");
 		 
+		 if (session == null || session.getAttribute("loggedinUser") == null) {
+		        response.sendRedirect("login.html");
+		        return;
+		    }
+		
+		
+		
+
 		System.out.println(request.getParameter("user_name"));
 		System.out.println(request.getParameter("password"));
 		// TODO Auto-generated method stub
