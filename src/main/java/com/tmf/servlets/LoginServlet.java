@@ -32,8 +32,7 @@ public class LoginServlet extends HttpServlet {
 
 		  response.sendRedirect("login.html");
 
-		response.sendRedirect("login.html");
-
+		
 		//Cookie ck[] =request.getCookies();
 		//String userName = null;
 		//if (ck != null) {

@@ -3,11 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <title>User Home Page</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    /* Header */
+    .header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .logout-btn input {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Layout */
+    .container {
+        display: flex;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    /* Profile */
+    .profile {
+        width: 30%;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .profile p {
+        margin: 6px 0;
+        color: #555;
+    }
+
+    /* Bookings */
+    .bookings {
+        width: 70%;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ecf0f1;
+    }
+
+    .status {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white;
+    }
+
+    .completed {
+        background-color: #2ecc71;
+    }
+
+    .cancelled {
+        background-color: #e74c3c;
+    }
+</style>
 </head>
+
 <body>
-	<h1>Welcome to User Home</h1>
-	<form action="LogoutServlet" method="post">
-	<input type="submit" value="Logout"/>
-	</form>
+
+    <!-- Header (your welcome text included) -->
+    <div class="header">
+        <h1>Welcome to User Home</h1>
+
+        <!-- Your logout form INCLUDED -->
+        <form action="LogoutServlet" method="post" class="logout-btn">
+            <input type="submit" value="Logout"/>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Profile Section -->
+        <div class="profile">
+            <h3>User Profile</h3>
+            <p><strong>Name:</strong> Harika</p>
+            <p><strong>Email:</strong> harika@gmail.com</p>
+            <p><strong>Phone:</strong> 9876543210</p>
+            <p><strong>City:</strong> Visakhapatnam</p>
+        </div>
+
+        <!-- Previous Bookings -->
+        <div class="bookings">
+            <h3>Previous Bookings</h3>
+
+            <table>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Date</th>
+                    <th>Driver</th>
+                    <th>Route</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>BK101</td>
+                    <td>12-02-2026</td>
+                    <td>Ravi Kumar</td>
+                    <td>Vizag → Vijayawada</td>
+                    <td><span class="status completed">Completed</span></td>
+                </tr>
+
+                <tr>
+                    <td>BK102</td>
+                    <td>20-02-2026</td>
+                    <td>Surendra</td>
+                    <td>Vizag → Guntur</td>
+                    <td><span class="status cancelled">Cancelled</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
 </body>
 </html>

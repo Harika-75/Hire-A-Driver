@@ -69,7 +69,7 @@ public class RegisterServlet extends HttpServlet {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/javaproject",
                 "root",
-                "root"
+                "Harika@123"
             );
             
          String sql = "INSERT INTO users " +
@@ -92,7 +92,7 @@ public class RegisterServlet extends HttpServlet {
          if(i > 0) {
         	 	out.println("Registration successful! Please login.");
         	 	//sleep(1000) Pause for 2 seconds before redirecting
-              			 	//response.sendRedirect("login.html");
+              	response.sendRedirect("user_home.html");
         	  
         	} else {
         	    out.println("Registration failed. Please try again.");
