@@ -68,7 +68,7 @@ public class RegisterServlet extends HttpServlet {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/javaproject",
                 "root",
-                "Harika@123"
+                "root"
             );
             
          String sql = "INSERT INTO users " +

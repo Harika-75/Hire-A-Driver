@@ -61,7 +61,6 @@ public class AdminDashboardServlet extends HttpServlet {
 				+ "	<h1>Welcome to Admin Dashboard </h1>\r\n"
 				+ admin.getUserName() + "<br/>"
 				+ admin.getEmail() + "<br/>"
-				+ admin.getContactNo() + "<br/>"
 				+ " <form action=\"LogoutServlet\" method=\"post\">\r\n"
 				+ "	<input type=\"submit\" value=\"Logout\"/>\r\n"
 				+ "	</form>\r\n"
