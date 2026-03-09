@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +99,9 @@ tr:hover {
 
 		<h1>Welcome, Harika</h1>
 
-		<button class="logout-btn">Logout</button>
+		<form action="LogoutServlet" method="post">
+    <button type="submit" class="logout-btn">Logout</button>
+</form>
 
 	</div>
 

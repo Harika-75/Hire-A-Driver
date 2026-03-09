@@ -127,7 +127,9 @@ tr:hover {
 
 	<div class="header">
 		<h1>Welcome Driver, Ramesh</h1>
-		<button class="logout-btn">Logout</button>
+		 <form action="LogoutServlet" method="post">
+    <button type="submit" class="logout-btn">Logout</button>
+</form>
 	</div>
 
 	<div class="container">

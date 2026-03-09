@@ -113,14 +113,14 @@ public class LoginServlet extends HttpServlet {
 	        rd.forward(request, response);
 		}*/
 			if ("CUSTOMER".equalsIgnoreCase(user.getUserType())) {
-		        response.sendRedirect("UserHomeServlet");
+		        response.sendRedirect("customer_home.jsp");
 		        return;
 		    } else if ("DRIVER".equalsIgnoreCase(user.getUserType())) {
-		        response.sendRedirect("DriverHomeServlet");
+		        response.sendRedirect("driver_home.jsp");
 		        return;
 		    } 
 	                else {
-	                    response.sendRedirect("login.html");
+	                    response.sendRedirect("login.jsp");
 	                    return;
 	                }
 
@@ -133,7 +133,7 @@ public class LoginServlet extends HttpServlet {
 		        rd.forward(request, response); */
 	  else {
 				System.out.println("Login failed");
-				response.sendRedirect("login.html");
+				response.sendRedirect("login.jsp");
 			}
 		
 		//doGet(request, response);

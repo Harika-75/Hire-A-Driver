@@ -76,8 +76,8 @@
     <h1>Welcome to Hire A Driver</h1>
     <p>Are you an existing user or a new user?</p>
 
-    <a href="login.html" class="btn login-btn">Existing User - Login</a>
-    <a href="register.html" class="btn register-btn">New User - Register</a>
+    <a href="login.jsp" class="btn login-btn">Existing User - Login</a>
+    <a href="register.jsp" class="btn register-btn">New User - Register</a>
 </div>
 
 </body>
