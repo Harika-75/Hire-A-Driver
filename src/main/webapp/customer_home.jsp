@@ -1,176 +1,316 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User Home Page</title>
+<title>User Home</title>
+
 <style>
-body {
-	font-family: Arial, sans-serif;
-	background: #f4f6f9;
-	margin: 40px;
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+margin:0;
 }
 
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 30px;
+/* HEADER */
+
+.header{
+background:#34495e;
+color:white;
+padding:18px 25px;
+position:relative;
 }
 
-.container {
-	display: flex;
-	gap: 40px;
+.header h2{
+margin:0;
 }
 
-.profile {
-	width: 30%;
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* HAMBURGER */
+
+#menu-toggle{
+display:none;
 }
 
-.bookings {
-	width: 70%;
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.menu-icon{
+position:absolute;
+right:25px;
+top:18px;
+font-size:28px;
+cursor:pointer;
+color:white;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 15px;
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+right:-1000px;
+width:280px;
+height:100%;
+background:white;
+box-shadow:-3px 0 10px rgba(0,0,0,0.2);
+transition:0.3s;
+padding:25px;
 }
 
-th {
-	background: #34495e;
-	color: white;
-	padding: 12px;
-	text-align: left;
+#menu-toggle:checked ~ .sidebar{
+right:0;
 }
 
-td {
-	padding: 12px;
-	border-bottom: 1px solid #ddd;
+.close-btn{
+font-size:22px;
+cursor:pointer;
+float:right;
 }
 
-tr:hover {
-	background: #f2f2f2;
+/* PROFILE */
+
+.profile-header{
+text-align:center;
+margin-top:20px;
 }
 
-.status {
-	padding: 5px 12px;
-	border-radius: 20px;
-	font-size: 12px;
-	font-weight: bold;
-	color: white;
+.avatar{
+width:80px;
+height:80px;
+border-radius:50%;
+background:#ddd;
+margin:auto;
 }
 
-.completed {
-	background: #2ecc71;
+.profile-header h3{
+margin-top:10px;
 }
 
-.pending {
-	background: #f39c12;
+.profile-info{
+margin-top:25px;
 }
 
-.cancelled {
-	background: #e74c3c;
+.profile-info p{
+margin:10px 0;
+border-bottom:1px solid #eee;
+padding-bottom:8px;
 }
 
-.logout-btn {
-	padding: 8px 15px;
-	background: #e74c3c;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+/* LOGOUT */
+
+.logout-btn{
+width:100%;
+padding:10px;
+background:#e74c3c;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
 }
+
+/* MAIN */
+
+.container{
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:40px;
+}
+
+/* BOOK TRIP */
+
+.booking-form{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+width:450px;
+margin-bottom:40px;
+}
+
+.booking-form h3{
+text-align:center;
+margin-bottom:20px;
+}
+
+.form-row{
+display:flex;
+gap:15px;
+}
+
+.booking-form input,
+.booking-form select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.book-btn{
+width:100%;
+padding:12px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+font-size:15px;
+}
+
+/* BOOKINGS */
+
+.bookings{
+width:80%;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th{
+background:#34495e;
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+.status{
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+color:white;
+}
+
+.completed{background:#2ecc71;}
+.pending{background:#f39c12;}
+
 </style>
 </head>
+
 <body>
-	<div class="header">
 
-		<h1>Welcome, Harika</h1>
+<input type="checkbox" id="menu-toggle">
 
-		<form action="LogoutServlet" method="post">
-    <button type="submit" class="logout-btn">Logout</button>
+<!-- HEADER -->
+
+<div class="header">
+
+<h2>Welcome, Harika</h2>
+
+<label for="menu-toggle" class="menu-icon">☰</label>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<label for="menu-toggle" class="close-btn">✖</label>
+
+<div class="profile-header">
+
+<div class="avatar"></div>
+
+<h3>Harika</h3>
+
+</div>
+
+<div class="profile-info">
+
+<p><strong>Email:</strong> harika@gmail.com</p>
+<p><strong>Phone:</strong> 9876543210</p>
+<p><strong>City:</strong> Hyderabad</p>
+
+</div>
+
+<form action="LogoutServlet" method="post">
+<button class="logout-btn">Logout</button>
 </form>
 
-	</div>
+</div>
 
-	<div class="container">
+<!-- MAIN -->
 
-		<div class="profile">
+<div class="container">
 
-			<h3>User Profile</h3>
+<div class="booking-form">
 
-			<p>
-				<strong>Name:</strong> Harika
-			</p>
-			<p>
-				<strong>Email:</strong> harika@gmail.com
-			</p>
-			<p>
-				<strong>Phone:</strong> 9876543210
-			</p>
-			<p>
-				<strong>City:</strong> Hyderabad
-			</p>
+<h3>Book a New Trip</h3>
 
-		</div>
+<form action="BookTripServlet" method="post">
 
-		<div class="bookings">
+<div class="form-row">
+<input type="text" name="source" placeholder="Source" required>
+<input type="text" name="destination" placeholder="Destination" required>
+</div>
 
-			<h3>Previous Bookings</h3>
+<div class="form-row">
+<input type="number" name="price" placeholder="Price" required>
+<input type="datetime-local" name="time" required>
+</div>
 
-			<table>
+<select name="driver">
+<option>Select Driver</option>
+<option>Ramesh</option>
+<option>Suresh</option>
+<option>Mahesh</option>
+</select>
 
-				<tr>
-					<th>ID</th>
-					<th>Date</th>
-					<th>Driver</th>
-					<th>Route</th>
-					<th>Status</th>
-				</tr>
+<button class="book-btn">Book Trip</button>
 
-				<tr>
-					<td>101</td>
-					<td>2026-03-01</td>
-					<td>Ramesh</td>
-					<td>Hyderabad → Bangalore</td>
-					<td><span class="status completed">COMPLETED</span></td>
-				</tr>
+</form>
 
-				<tr>
-					<td>102</td>
-					<td>2026-03-05</td>
-					<td>Suresh</td>
-					<td>Chennai → Hyderabad</td>
-					<td><span class="status pending">PENDING</span></td>
-				</tr>
+</div>
 
-				<tr>
-					<td>103</td>
-					<td>2026-03-08</td>
-					<td>Mahesh</td>
-					<td>Visakhapatnam → Vijayawada</td>
-					<td><span class="status cancelled">CANCELLED</span></td>
-				</tr>
+<div class="bookings">
 
-			</table>
+<h3>Previous Bookings</h3>
 
-		</div>
+<table>
 
-	</div>
+<tr>
+<th>ID</th>
+<th>Date</th>
+<th>Driver</th>
+<th>Route</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>2026-03-01</td>
+<td>Ramesh</td>
+<td>Hyderabad → Bangalore</td>
+<td><span class="status completed">COMPLETED</span></td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>2026-03-05</td>
+<td>Suresh</td>
+<td>Chennai → Hyderabad</td>
+<td><span class="status pending">PENDING</span></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
 
 </body>
 </html>
-
-
