@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
 	            user.setPhone(rs.getString("phone_number"));
 	            user.setEmail(rs.getString("email"));
 	            user.setDob(rs.getString("dob"));
-	            user.setUserType(rs.getString("user_type"));
+	            user.setRole(rs.getString("role"));
 	            user.setGender(rs.getString("gender"));
 	            user.setCity(rs.getString("address"));
 	            
@@ -112,10 +112,10 @@ public class LoginServlet extends HttpServlet {
 			
 	        rd.forward(request, response);
 		}*/
-			if ("CUSTOMER".equalsIgnoreCase(user.getUserType())) {
+			if ("CUSTOMER".equalsIgnoreCase(user.getRole())) {
 		        response.sendRedirect("customer_home.jsp");
 		        return;
-		    } else if ("DRIVER".equalsIgnoreCase(user.getUserType())) {
+		    } else if ("DRIVER".equalsIgnoreCase(user.getRole())) {
 		        response.sendRedirect("driver_home.jsp");
 		        return;
 		    } 

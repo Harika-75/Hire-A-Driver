@@ -8,7 +8,7 @@ public class User {
 	String phone;
 	String email;
 	String dob;
-	String userType;
+	String role;
 	String gender;
 	String city;
 	
@@ -72,13 +72,12 @@ public class User {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-
-	public String getUserType() {
-		return userType;
+	public String getRole() {
+		return role;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getGender() {
@@ -96,6 +95,8 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	
 
 	
 	
