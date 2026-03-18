@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="hd" uri = "http://hireadriver/tags" %>
 
 <%@ page import="com.tmf.had.dao.Userdao" %>
 <%@ page import="com.tmf.had.model.Booking" %>
@@ -280,23 +281,49 @@ td {
 			</form>
 
 		</div>
+		<% 
+				Userdao dao=new Userdao();
+				List<Booking> bookingsList=dao.getBookingsListByUserId(1); // Assuming user ID is 1
+				System.out.println("Bookings List: " + bookingsList.size()); // Debugging statement
+				Booking b = bookingsList.get(0); // Get the first booking for debugging
+				String s= b.toString(); // Convert the booking to a string for debugging
+				System.out.println("First Booking: " + s); // Debugging statement
+				pageContext.setAttribute("bookingsList", bookingsList);
+				%> 
 
 		<div class="bookings">
 
 			<h3>Previous Bookings</h3>
+			<hd:bookingTable bookings="${bookingsList }" />
 			<table>
 
-				<tr>
+				<!--  tr>
 					<th>Booking ID</th>
 					<th>Customer ID</th>
 					<th>Trip ID</th>
 					<th>DATE</th>
 					<th>Status</th>
+				</tr>-->
+				
+				<%-- using jstl tags
+				
+				<c:out value="${s}" /><!-- Debugging statement -->
+				
+				<c:forEach items="${bookingsList}" var="b">
+					
+					<tr>
+					<td><c:out value="${b.bookingId}" /></td>
+					<td><c:out value="${b.customerId}"/></td>
+					<td><c:out value="${b.tripId}"/></td>
+
+					<td><c:out value="${b.bookingdate}"/></td>
+					<td><c:out value="${b.status}"/></td>
+
 				</tr>
-				<% 
-				Userdao dao=new Userdao();
-				List<Booking> bookingsList=dao.getBookingsListByUserId(1); // Assuming user ID is 1
-				%>
+				</c:forEach>
+				--%>
+				<%--
+				using base jsp scriplet tags  
 				<%
 				for(int i=0;i<bookingsList.size();i++){
 			%>
@@ -312,8 +339,9 @@ td {
 				<%
 				}
 			%>
+			
 
-				<!-- <c:bookingTable bookings="${bookingsList }" />  -->
+				<%-- <c:bookingTable bookings="${bookingsList }" />  --%>
 
 
 

@@ -6,13 +6,13 @@
         version="3.0">
 
 <tlib-version>1.0</tlib-version>
-<short-name>c</short-name>
-<uri>http://java.sun.com/jsp/jstl/core</uri>
+<short-name>hd</short-name>
+<uri>http://hireadriver/tags</uri>
 
 <tag>
 
     <name>bookingTable</name>
-    <tag-class>com.hireadriver.tags.BookingTableTag</tag-class>
+    <tag-class>com.tmf.had.model.BookingTableTag</tag-class>
     <body-content>empty</body-content>
 
     <attribute>

@@ -7,6 +7,10 @@ import jakarta.servlet.jsp.JspWriter;
 import jakarta.servlet.jsp.tagext.TagSupport;
 
 public class BookingTableTag extends TagSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Booking> bookings;
 
 	public void setBookings(List<Booking> bookings) {
@@ -20,11 +24,11 @@ public class BookingTableTag extends TagSupport {
 
 			out.println("<table border='1'>");
 			out.println("<tr>");
-			out.println("<th>ID</th>");
-			out.println("<th>Pickup</th>");
-			out.println("<th>Drop</th>");
+			out.println("<th>Booking ID</th>");
+			out.println("<th>Customer ID</th>");
+			out.println("<th>Trip ID</th>");
+			out.println("<th>DATE</th>");
 			out.println("<th>Status</th>");
-			out.println("<th>Price</th>");
 			out.println("</tr>");
 			if (bookings != null) {
 				for (Booking b : bookings) {
@@ -32,6 +36,9 @@ public class BookingTableTag extends TagSupport {
 					out.println("<td>" + b.getBookingId() + "</td>");
 //					out.println("<td>" + b.getPickupLocation() + "</td>");
 //					out.println("<td>" + b.getDropLocation() + "</td>");
+					out.println("<td>" + b.getCustomerId() + "</td>");
+					out.println("<td>" + b.getTripId() + "</td>");
+					out.println("<td>" + b.getBookingdate() + "</td>");
 					out.println("<td>" + b.getStatus() + "</td>");
 //					out.println("<td>" + b.getPrice() + "</td>");
 					out.println("</tr>");

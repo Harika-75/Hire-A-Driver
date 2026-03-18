@@ -26,6 +26,8 @@ public class Booking {
 	public int getBookingId() {
 		return bookingId;
 	}
+	
+	
 	public void setBookingId(int bookingId) {
 		this.bookingId = bookingId;
 	}
@@ -53,6 +55,13 @@ public class Booking {
 //	public void setBookingdate(Date bookingdate) {
 //		this.bookingdate = bookingdate;
 //	}
+	@Override
+	public String toString() {
+		return "Booking [bookingId=" + bookingId + ", customerId=" + customerId + ", tripId=" + tripId + ", status="
+				+ status + ", bookingdate=" + bookingdate + "]";
+	}
+	
+	
 }
 
 	

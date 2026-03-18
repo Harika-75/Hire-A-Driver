@@ -91,7 +91,7 @@ public class Userdao {
 //					"JOIN users d ON b.driver_id = d.id " +
 //					"WHERE b.user_id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, userId);
+//			ps.setInt(1, userId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Booking booking = new Booking();
@@ -100,8 +100,9 @@ public class Userdao {
 				booking.setTripId(rs.getInt("trip_id"));
 				
 				booking.setBookingdate(rs.getString("booking_date"));
-				booking.setStatus(rs.getString("status"));
+				booking.setStatus(rs.getString("booking_status"));
 //				booking.setDriverName(rs.getString("driver_name"));
+				
 				bookingsList.add(booking);
 			}
 		} catch (Exception e) {
