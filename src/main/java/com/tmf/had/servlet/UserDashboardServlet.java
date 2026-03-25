@@ -1,4 +1,4 @@
-package com.tmf.servlets;
+package com.tmf.had.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
